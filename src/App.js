@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import styled from "styled-components";
 import Expenses from "./components/expenses/Expenses";
 import NewExpense from "./components/new-expenses/NewExpense";
 
@@ -90,7 +90,18 @@ const items = [
     price: 1000,
     date: new Date(2021, 4, 18)
   },
-]
+];
+
+const AppDiv = styled.div`
+display: flex;
+justify-content: center;
+background: #1F1F1F;
+border-radius: 12px;
+`;
+const ItemDiv = styled.div`
+text-align: center;
+width: 780px;
+`;
 
 function App() {
   const [expenses , setExpenses] = useState(items)
@@ -100,12 +111,12 @@ function App() {
    setExpenses(upExpenses)
    }
 
-  return <div className="apps"> 
-    <div className="items">
+  return <AppDiv> 
+    <ItemDiv>
     <NewExpense onNewExpenseAdd={addNewExpenseHandler}/>
     <Expenses expenses={expenses}/>
-    </div>
-  </div>
+    </ItemDiv>
+  </AppDiv>
 }
 
 export default App;

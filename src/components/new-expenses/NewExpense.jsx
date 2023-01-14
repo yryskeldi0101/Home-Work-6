@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import Button from "../../UI/button/Button";
 import ExpenseForm from "../expense-form/ExpenseForm";
-import "./NewExpense.css"
+import styled from  "styled-components"
 
+
+const StyledDiv = styled.div`
+  background: #AD9BE9;
+border-radius: 12px;
+padding: 50px;
+`
 const NewExpense = ({onNewExpenseAdd}) => {
   const [showForm, setShowForm] = useState(false);
   const showExpenseForm = () => {
@@ -11,7 +17,7 @@ const NewExpense = ({onNewExpenseAdd}) => {
     });
   };
   return (
-    <div className="container">
+    <StyledDiv>
       {showForm ? (
         <ExpenseForm onShowForm={showExpenseForm} 
         onNewExpenseAdd={onNewExpenseAdd}/>
@@ -20,7 +26,7 @@ const NewExpense = ({onNewExpenseAdd}) => {
         title="Добавить новый расход"
         onClick={showExpenseForm} />
       )}
-    </div>
+    </StyledDiv>
   );
 };
 

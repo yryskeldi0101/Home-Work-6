@@ -1,8 +1,17 @@
 import React, { useState } from "react";
 import ExpenseItem from "../../UI/expenseItem/ExpenseItem";
 import ExpensesFilter from "../expensesfilter/ExpensesFilter";
-import "./Expenses.css";
+import  styled from"styled-components";
 import Chart from "../Chart/Chart";
+
+const UlList = styled.ul`
+padding: 10px;
+border: 3px solid rgb(5, 140, 5);
+border-radius: 20px;
+margin-top: 20px;
+margin-bottom: 30px;
+background: black;  
+`;
 const Expenses = ({ expenses }) => {
   const [selectedYear, setSelectedYear] = useState("2023");
   const yearChangeHandler = (event) => {
@@ -13,7 +22,7 @@ const Expenses = ({ expenses }) => {
     return stringifiedYear === selectedYear;
   });
   return (
-      <ul className="ul-list">
+      <UlList>
       <ExpensesFilter value={selectedYear} onChange={yearChangeHandler} />
       <Chart items={filteredItems}/>
         {filteredItems.map((elem) => {
@@ -26,7 +35,7 @@ const Expenses = ({ expenses }) => {
             />
           );
         })}
-      </ul>
+      </UlList>
   );
 };
 

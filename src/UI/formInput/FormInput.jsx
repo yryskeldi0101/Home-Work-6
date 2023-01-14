@@ -1,12 +1,35 @@
 import React from "react";
-import "./FormInput.css"
-const FormInput = ({ id, labelName, placeholder, inputType, ...rest}) => {
- 
+import styled from "styled-components";
+
+const InputDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-bottom: 10px;
+`;
+const LabelName = styled.label`
+  font-weight: 500;
+  display: flex;
+  margin-bottom: 10px;
+`;
+const Input = styled.input`
+  outline: none;
+  width: 290px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+`;
+const FormInput = ({ id, labelName, placeholder, inputType, ...rest }) => {
   return (
-    <div className="div_block">
-      <label className="label"  htmlFor={id}>{labelName}</label>
-      <input className="input" placeholder={placeholder || "..."} id={id} type={inputType} {...rest}/>
-    </div>
+    <InputDiv>
+      <LabelName htmlFor={id}>{labelName}</LabelName>
+      <Input
+        placeholder={placeholder || "..."}
+        id={id}
+        type={inputType}
+        {...rest}
+      />
+    </InputDiv>
   );
 };
 

@@ -1,16 +1,26 @@
 import React, { useState } from "react";
 import Button from "../../UI/button/Button";
 import FormInput from "../../UI/formInput/FormInput";
-import "./ExpenseForm.css";
+import styled from "styled-components";
 
+const Form = styled.form`
+ display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+`;
+const DivContainer = styled.div`
+   margin-top: 2rem;
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 50px;
+  margin-left: 120px;
+`;
 const ExpenseForm = (props) => {
   const [title, setTitle] = useState("");
   const [price, setPrise] = useState("");
   const [date, setDate] = useState("");
-  const enabled =
-  title.length > 0 &&
-  price.length > 0 &&
-  date.length > 0;
+  const enabled = title.length > 0 && price.length > 0 && date.length > 0;
   const cancelHandler = (event) => {
     event.preventDefault();
     props.onShowForm();
@@ -25,14 +35,14 @@ const ExpenseForm = (props) => {
     };
     props.onNewExpenseAdd(expenseDate);
     setTitle("");
-    
+
     setPrise("");
     setDate("");
   };
   const titleInputChangeHandler = (event) => {
     setTitle(event.target.value);
   };
-  
+
   const priceInputChangeHandler = (event) => {
     setPrise(event.target.value);
   };
@@ -40,9 +50,8 @@ const ExpenseForm = (props) => {
     setDate(event.target.value);
   };
 
- 
   return (
-    <form className="form">
+    <Form>
       <FormInput
         id="name"
         labelName="Название"
@@ -53,8 +62,7 @@ const ExpenseForm = (props) => {
       />
 
       <FormInput
-        labelName="Количество денег
-      "
+        labelName="Количество денег"
         inputType="number"
         id="money"
         value={price}
@@ -69,23 +77,12 @@ const ExpenseForm = (props) => {
         value={date}
         onChange={dateInputChangeHandler}
       />
-      <div className="button_div">
+      <DivContainer>
         <Button title="Отмена" onClick={cancelHandler} />
-        <Button title="Сохранить" onClick={saveHandler} disabled={!enabled}/>
-      </div>
-    </form>
+        <Button title="Сохранить" onClick={saveHandler} disabled={!enabled} />
+      </DivContainer>
+    </Form>
   );
 };
 
 export default ExpenseForm;
-
-
-// GIT vcs
-// GITHUB 
-// EACH COMPONENT HAS OWN STATE
-// LIFTING STATE UP 
-// CHILDREN
-// KEYS 
-// commit push 
-// branches 
-// local end remote branches/ changes 

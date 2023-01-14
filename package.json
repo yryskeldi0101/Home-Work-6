@@ -1,5 +1,5 @@
 {
-  "homepage": "https://yryskeldi0101.github.io/My-home-work",
+  "homepage": "https://yryskeldi0101.github.io/Home-Work-6",
   "name": "fisrt-session-1",
   "version": "0.1.0",
   "private": true,
@@ -11,6 +11,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
